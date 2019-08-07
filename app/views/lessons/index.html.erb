@@ -1,0 +1,6 @@
+<h1><%= @teacher.username.capitalize %>'s Lessons</h1>
+<ul>
+  <% @teacher.lessons.each do |l| %>
+    <li><%= link_to l.title, teacher_lesson_path(@teacher, l) %></li>
+  <% end %>
+</ul>

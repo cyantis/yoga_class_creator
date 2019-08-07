@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_03_233130) do
+ActiveRecord::Schema.define(version: 2019_08_07_150953) do
 
   create_table "lessons", force: :cascade do |t|
     t.string "title"
     t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "lesson_type"
   end
 
   create_table "lessons_poses", id: false, force: :cascade do |t|
