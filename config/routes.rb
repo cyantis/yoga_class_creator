@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :teachers do
-    resources :lessons
+    resources :lessons do
+      resources :notes
+    end
   end
 end
