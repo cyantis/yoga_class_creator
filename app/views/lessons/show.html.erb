@@ -1,1 +1,5 @@
 <h1><%= @lesson.title %> | <%= @lesson.lesson_type.capitalize %></h1>
+<h3>Notes</h3>
+<% @lesson.notes.each do |n|  %>
+  <p><%= note_date(n) %> | <%= n.content %></p>
+<% end %>
