@@ -1,6 +1,5 @@
-class NotesController < ApplicationContoller
-  def show
-    binding.pry
-    @note = Note.find_by()
+class NotesController < ApplicationController
+  def edit
+    @note = Note.find(params[:id])
   end
 end

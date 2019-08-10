@@ -1,0 +1,13 @@
+<%= form_for [@teacher, @lesson] do |f| %>
+  Title: <%= f.text_field :title %></br>
+  Type: <%= f.text_field :lesson_type %></br>
+
+
+  <%= f.fields_for :poses do |i| %>
+   Name: <%= i.text_field :name %></br>
+  <% end %>
+
+  <%= hidden_field_tag 'lesson[teacher_id]', params[:teacher_id] %>
+
+  <%= f.submit %>
+<% end %>
