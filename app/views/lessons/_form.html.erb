@@ -5,6 +5,7 @@
 
   <%= f.fields_for :poses do |i| %>
    Name: <%= i.text_field :name %></br>
+    <%= i.hidden_field :teacher_id, :value => @teacher.id %>
   <% end %>
 
   <%= hidden_field_tag 'lesson[teacher_id]', params[:teacher_id] %>
