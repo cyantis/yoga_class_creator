@@ -1,10 +1,13 @@
 <%= form_for [@teacher, @lesson] do |f| %>
-  Title: <%= f.text_field :title %></br>
-  Type: <%= f.text_field :lesson_type %></br>
+  <%= f.label :title, 'Lesson Title' %></br>
+  <%= f.text_field :title %></br>
+  <%= f.label :lesson_type, 'Type of Lesson' %></br>
+  <%= f.text_field :lesson_type %></br>
 
 
   <%= f.fields_for :poses do |i| %>
-   Name: <%= i.text_field :name %></br>
+    <%= i.label :name, 'Pose' %></br>
+    <%= i.text_field :name %></br>
     <%= i.hidden_field :teacher_id, :value => @teacher.id %>
   <% end %>
 
