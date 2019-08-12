@@ -2,7 +2,7 @@
 <h3>Poses</h3>
 <ol>
   <% @lesson.poses.each do |p| %>
-    <li><%= p.name %></li>
+    <li><%= p.name.titleize %></li>
   <% end %>
 </ol>
 <h3>Notes</h3>

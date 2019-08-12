@@ -5,8 +5,6 @@
   <%= f.label :lesson_type, 'Type of Class' %></br>
   <%= f.select :lesson_type, lesson_type_arr(@teacher), :prompt => 'Select from previous Class Types' %><br>
 
-  <%= f.text_field :lesson_type, placeholder: 'Enter new Class Type' %></br>
-
   <%= f.fields_for :poses do |i| %>
     <%= i.label :name, 'Pose' %></br>
     <%= i.text_field :name %></br>
