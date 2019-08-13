@@ -1,14 +1,14 @@
-<%= form_for [@teacher, @lesson] do |f| %>
+<%= form_for [teacher, lesson] do |f| %>
   <%= f.label :title, 'Class Title' %></br>
   <%= f.text_field :title %></br>
 
   <%= f.label :lesson_type, 'Type of Class' %></br>
-  <%= f.select :lesson_type, lesson_type_arr(@teacher), :prompt => 'Select from previous Class Types' %><br>
+  <%= f.select :lesson_type, lesson_type_arr, :prompt => 'Select from previous Class Types' %><br>
 
   <%= f.fields_for :poses do |i| %>
     <%= i.label :name, 'Pose' %></br>
     <%= i.text_field :name %></br>
-    <%= i.hidden_field :teacher_id, :value => @teacher.id %>
+    <%= i.hidden_field :teacher_id, :value => teacher.id %>
   <% end %>
 
   <%= hidden_field_tag 'lesson[teacher_id]', params[:teacher_id] %>
