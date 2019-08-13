@@ -1,3 +1,5 @@
 <h1>EDITING <%= @lesson.title.upcase %></h1>
 
 <%= render partial: 'form', locals: {teacher: @teacher, lesson: @lesson} %>
+<p><%= button_to "Delete Lesson", teacher_lesson_path(@lesson.teacher, @lesson), method: :delete %><p>
+<p><%= button_to "Cancel", teacher_lesson_path(@lesson.teacher, @lesson), method: :get %><p>

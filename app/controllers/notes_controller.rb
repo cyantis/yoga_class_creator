@@ -24,6 +24,13 @@ class NotesController < ApplicationController
     redirect_to teacher_lesson_path(@note.lesson.teacher, @note.lesson)
   end
 
+  def destroy
+    @note = Note.find(params[:id])
+    @lesson = Lesson.find_by(id: params[:lesson_id])
+    @note.destroy
+    redirect_to teacher_lesson_path(@lesson.teacher, @lesson)
+  end
+
   private
 
   def note_params
