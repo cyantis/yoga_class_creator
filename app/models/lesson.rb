@@ -5,10 +5,7 @@ class Lesson < ApplicationRecord
   #accepts_nested_attributes_for :poses
 
   def poses_attributes=(pose_attributes)
-    pose_attributes.values.each do |pose_attribute|
-      pose = Pose.find_or_create_by(name: pose_attribute["name"].downcase, teacher_id: pose_attribute["teacher_id"])
-      self.poses << pose
-    end
+    self.poses = pose_attributes.values.collect {|pose_attribute| Pose.find_or_create_by(name: pose_attribute["name"].downcase, teacher_id: pose_attribute["teacher_id"])}
   end
 
 end
