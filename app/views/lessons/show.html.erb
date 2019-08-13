@@ -5,7 +5,10 @@
     <li><%= p.name.titleize %></li>
   <% end %>
 </ol>
+<p><%= button_to "Edit Lesson", edit_teacher_lesson_path(@lesson.teacher, @lesson), :method => :get %></p>
+<p><%= button_to "Back to Lessons", teacher_lessons_path, :method => :get %></p>
 <h3>Notes</h3>
 <% @lesson.notes.each do |n|  %>
   <p><%= note_date(n) %> | <%= n.content %></p>
+  <p><%= button_to "Edit Note", edit_teacher_lesson_note_path(@lesson.teacher, @lesson, n), :method => :get %></p>
 <% end %>

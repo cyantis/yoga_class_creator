@@ -31,6 +31,10 @@ class LessonsController < ApplicationController
     redirect_to teacher_lesson_path(@lesson.teacher, @lesson)
   end
 
+  def destroy
+
+  end
+
   private
 
   def lesson_params
