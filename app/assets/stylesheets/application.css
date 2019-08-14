@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.flash_with_error input {
+  border: red 1px solid;
+}

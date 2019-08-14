@@ -4,3 +4,5 @@
     <li><%= link_to l.title, teacher_lesson_path(@teacher, l) %></li>
   <% end %>
 </ul>
+
+<p><%= button_to "New Lesson", new_teacher_lesson_path(@teacher), method: :get %></p>

@@ -16,8 +16,13 @@ class LessonsController < ApplicationController
   end
 
   def create
+    @teacher = Teacher.find_by(id: params[:teacher_id])
     @lesson = Lesson.create(lesson_params)
-    redirect_to teacher_lesson_path(@lesson.teacher, @lesson)
+    if @lesson.save
+      redirect_to teacher_lesson_path(@teacher, @lesson)
+    else
+      render :new
+    end
   end
 
   def edit

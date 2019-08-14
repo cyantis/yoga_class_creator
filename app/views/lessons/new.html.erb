@@ -1,3 +1,9 @@
+<% if @lesson.errors %>
+    <% @lesson.errors.full_messages.each do |error| %>
+      <%= content_tag(:p, error) %>
+    <% end %>
+<% end %>
+
 <h1>CREATE A NEW LESSON</h1>
 
 <%= render partial: 'form', locals: {teacher: @teacher, lesson: @lesson} %>
