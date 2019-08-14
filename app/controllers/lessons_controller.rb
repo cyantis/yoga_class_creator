@@ -19,6 +19,7 @@ class LessonsController < ApplicationController
     @teacher = Teacher.find_by(id: params[:teacher_id])
     @lesson = Lesson.create(lesson_params)
     if @lesson.save
+      flash[:message] = "Lesson Created!"
       redirect_to teacher_lesson_path(@teacher, @lesson)
     else
       render :new
@@ -33,12 +34,14 @@ class LessonsController < ApplicationController
   def update
     @lesson = Lesson.find(params[:id])
     @lesson.update(lesson_params)
+    flash[:message] = "Lesson Updated!"
     redirect_to teacher_lesson_path(@lesson.teacher, @lesson)
   end
 
   def destroy
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
+    flash[:message] = "Lesson Deleted!"
     redirect_to teacher_lessons_path
   end
 

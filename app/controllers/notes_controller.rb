@@ -8,6 +8,7 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.create(note_params)
+    flash[:message] = "Note Taken!"
     redirect_to teacher_lesson_path(@note.lesson.teacher, @note.lesson)
   end
 
@@ -21,6 +22,7 @@ class NotesController < ApplicationController
   def update
     @note = Note.find(params[:id])
     @note.update(note_params)
+    flash[:message] = "Note Updated!"
     redirect_to teacher_lesson_path(@note.lesson.teacher, @note.lesson)
   end
 
@@ -28,6 +30,7 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
     @lesson = Lesson.find_by(id: params[:lesson_id])
     @note.destroy
+    flash[:message] = "Note Deleted!"
     redirect_to teacher_lesson_path(@lesson.teacher, @lesson)
   end
 

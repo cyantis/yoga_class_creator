@@ -1,3 +1,5 @@
+<%= flash[:message] if flash[:message] %>
+
 <h1><%= @teacher.username.capitalize %>'s Lessons</h1>
 <ul>
   <% @teacher.lessons.each do |l| %>

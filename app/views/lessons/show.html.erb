@@ -1,3 +1,5 @@
+<%= flash[:message] if flash[:message] %>
+
 <h1><%= @lesson.title %> | <%= @lesson.lesson_type.capitalize %></h1>
 <h3>Poses</h3>
 <ol>
@@ -9,6 +11,7 @@
 <p><%= button_to "Delete Lesson", teacher_lesson_path(@lesson.teacher, @lesson), method: :delete %><p>
 <p><%= button_to "Back to Lessons", teacher_lessons_path, :method => :get %></p>
 <h3>Notes</h3>
+<p><%= button_to "Add Note", new_teacher_lesson_note_path(@lesson.teacher, @lesson), method: :get %></p>
 <% @lesson.notes.each do |n|  %>
   <p><%= note_date(n) %> | <%= n.content %></p>
   <p><%= button_to "Edit Note", edit_teacher_lesson_note_path(@lesson.teacher, @lesson, n), method: :get %></p>
