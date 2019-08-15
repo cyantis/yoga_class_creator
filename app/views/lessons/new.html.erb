@@ -7,3 +7,4 @@
 <h1>CREATE A NEW LESSON</h1>
 
 <%= render partial: 'form', locals: {teacher: @teacher, lesson: @lesson} %>
+<p><%= button_to "Cancel", teacher_lessons_path(@teacher), method: :get %><p>

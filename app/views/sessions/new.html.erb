@@ -1,0 +1,13 @@
+<%= flash[:message] if flash[:message] %>
+
+<h1>LOGIN TO YOGA CLASS CREATOR</h1>
+
+<%= form_for :teacher, url: sessions_path do |f|%>
+  <%= f.label :username %>
+  <%= f.text_field :username %> <br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password%> <br>
+
+  <%= f.submit 'Login!' %>
+<% end %>

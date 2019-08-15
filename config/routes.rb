@@ -4,4 +4,8 @@ Rails.application.routes.draw do
       resources :notes
     end
   end
+
+  resource :sessions
+
+  root 'sessions#new'
 end
