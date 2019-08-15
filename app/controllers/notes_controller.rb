@@ -1,9 +1,13 @@
 class NotesController < ApplicationController
   def new
-    @teacher = Teacher.find_by(id: params[:teacher_id])
-    @lesson = Lesson.find_by(id: params[:lesson_id])
-    @note = Note.new
-    @lesson.notes.build()
+    if logged_in?
+      @teacher = Teacher.find_by(id: params[:teacher_id])
+      @lesson = Lesson.find_by(id: params[:lesson_id])
+      @note = Note.new
+      @lesson.notes.build()
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -14,9 +18,13 @@ class NotesController < ApplicationController
 
 
   def edit
-    @teacher = Teacher.find_by(id: params[:teacher_id])
-    @lesson = Lesson.find_by(id: params[:lesson_id])
-    @note = Note.find(params[:id])
+    if logged_in?
+      @teacher = Teacher.find_by(id: params[:teacher_id])
+      @lesson = Lesson.find_by(id: params[:lesson_id])
+      @note = Note.find(params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   def update
@@ -38,6 +46,6 @@ class NotesController < ApplicationController
 
   def note_params
     params.require(:note).permit(:content, :lesson_id)
-
   end
+  
 end
