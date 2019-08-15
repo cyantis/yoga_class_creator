@@ -1,6 +1,7 @@
 <%= flash[:message] if flash[:message] %>
 
 <h1><%= @lesson.title %> | <%= @lesson.lesson_type.capitalize %></h1>
+<h3>Playlist: <%= @lesson.playlist.capitalize if @lesson.playlist %></h3>
 <h3>Poses</h3>
 <ol>
   <% @lesson.poses.each do |p| %>

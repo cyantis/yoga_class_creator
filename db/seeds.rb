@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-teacher = Teacher.create(username: "test yogi", password_digest: 12345)
+teacher = Teacher.create(username: "test_yogi", password: "%!#n'v'P(q4hR@[N%")
 Lesson.create(lesson_type: "Vinyasa", teacher_id: 1)
 Lesson.create(lesson_type: "Deep Stretch", teacher_id: 1)
 Lesson.create(lesson_type: "Gentle", teacher_id: 1)
