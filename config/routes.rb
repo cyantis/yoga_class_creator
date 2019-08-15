@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   resource :sessions, only: [:new, :create, :destroy]
 
   root 'sessions#new'
+
+  get '/auth/google_oauth2/callback', to: 'omniauth#create'
+  get 'auth/failure', to: redirect('/')
 end

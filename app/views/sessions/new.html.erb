@@ -10,7 +10,9 @@
   <%= f.password_field :password%> <br>
 
   <%= f.submit 'Login!' %>
-<% end %><br>
+<% end %>
+
+<p><%=button_to('Log in with Google!', '/auth/google_oauth2') %><p>
 
 <p>New to Yoga Class Creator?</p>
 <p><%= button_to "Create an Account!", new_teacher_path, method: :get %><p>
