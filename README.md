@@ -39,7 +39,7 @@ To use the Open Authentication feature that allows users to login with their Goo
 
 4. Create a `.env` file at the root of your app and add your Client ID and Client Secret to the `.env` file like this:
 
-  `GOOGLE_CLIENT_ID=Client ID Goes Here`
+  `GOOGLE_CLIENT_ID=Client ID Goes Here`  
   `GOOGLE_CLIENT_SECRET=Client Secret Goes Here`
 
 ## Usage
