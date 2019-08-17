@@ -1,28 +1,18 @@
 class LessonsController < ApplicationController
+  before_action :require_login
+
   def index
-    if logged_in?
-      @teacher = Teacher.find_by(id: params[:teacher_id])
-    else
-      redirect_to root_path
-    end
+    @teacher = Teacher.find_by(id: params[:teacher_id])
   end
 
   def show
-    if logged_in?
-      @lesson = Lesson.find(params[:id])
-    else
-      redirect_to root_path
-    end
+    @lesson = Lesson.find(params[:id])
   end
 
   def new
-    if logged_in?
-      @teacher = Teacher.find_by(id: params[:teacher_id])
-      @lesson = Lesson.new
-      10.times { @lesson.poses.build() }
-    else
-      redirect_to root_path
-    end
+    @teacher = Teacher.find_by(id: params[:teacher_id])
+    @lesson = Lesson.new
+    10.times { @lesson.poses.build() }
   end
 
   def create
@@ -37,12 +27,8 @@ class LessonsController < ApplicationController
   end
 
   def edit
-    if logged_in?
-      @teacher = Teacher.find_by(id: params[:teacher_id])
-      @lesson = Lesson.find(params[:id])
-    else
-      redirect_to root_path
-    end
+    @teacher = Teacher.find_by(id: params[:teacher_id])
+    @lesson = Lesson.find(params[:id])
   end
 
   def update
