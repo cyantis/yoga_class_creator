@@ -27,7 +27,7 @@ and then visit `http://localhost:3000`in your browser to access the _YCC_ site.
 
 To end the server session, type `ctrl-c`.
 
-##Google OAuth setup
+## Google OAuth setup
 
 To use the Open Authentication feature that allows users to login with their Google account you will need to:
 
