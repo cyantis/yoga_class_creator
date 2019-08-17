@@ -2,5 +2,6 @@
   <%= f.label :content, 'Take Note!' %></br>
   <%= f.text_area :content %></br>
   <%= hidden_field_tag 'note[lesson_id]', params[:lesson_id] %>
+  <%= hidden_field_tag 'note[teacher_id]', params[:teacher_id] %>
   <%= f.submit "Noted!"%>
 <% end %>

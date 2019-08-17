@@ -39,7 +39,7 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:content, :lesson_id)
+    params.require(:note).permit(:content, :lesson_id, :teacher_id)
   end
 
 end

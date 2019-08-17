@@ -7,7 +7,7 @@ class Lesson < ApplicationRecord
   validates :title, uniqueness: true
 
   def poses_attributes=(pose_attributes)
-    self.poses = pose_attributes.values.collect {|pose_attribute| Pose.find_or_create_by(name: pose_attribute["name"].downcase, teacher_id: pose_attribute["teacher_id"])}
+    self.poses = pose_attributes.values.collect {|pose_attribute| Pose.find_or_create_by(name: pose_attribute["name"].downcase)}
   end
 
 end
