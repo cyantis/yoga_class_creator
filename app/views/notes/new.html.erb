@@ -1,3 +1,5 @@
 <h1>ADD A NOTE TO "<%= @lesson.title.upcase %>"</h1>
 
 <%= render partial: 'form', locals: {teacher: @teacher, lesson: @lesson, note: @note} %>
+
+<p><%= button_to "Cancel", teacher_lesson_path(@lesson.teacher, @lesson), method: :get %><p>

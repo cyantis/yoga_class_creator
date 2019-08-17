@@ -1,5 +1,6 @@
 <h1>EDITING NOTE</h1>
 
 <%= render partial: 'form', locals: {teacher: @teacher, lesson: @lesson, note: @note} %>
+  
 <p><%= button_to "Delete Note", teacher_lesson_note_path(@lesson.teacher, @lesson, @note), method: :delete %></p>
 <p><%= button_to "Cancel", teacher_lesson_path(@lesson.teacher, @lesson), method: :get %><p>

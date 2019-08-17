@@ -1,11 +1,11 @@
 <%= flash[:message] if flash[:message] %>
 
-<h1><%= @teacher.username.capitalize %>'s Lessons</h1>
+<h1><%= @teacher.username.capitalize %>'s Classes</h1>
 <ul>
   <% @teacher.lessons.each do |l| %>
     <li><%= link_to l.title, teacher_lesson_path(@teacher, l) %></li>
   <% end %>
 </ul>
 
-<p><%= button_to "New Lesson", new_teacher_lesson_path(@teacher), method: :get %></p>
+<p><%= button_to "New Class", new_teacher_lesson_path(@teacher), method: :get %></p>
 <p><%= button_to "Logout", sessions_path, method: :delete %></p>
