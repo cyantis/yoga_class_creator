@@ -19,9 +19,7 @@ class LessonsController < ApplicationController
     if logged_in?
       @teacher = Teacher.find_by(id: params[:teacher_id])
       @lesson = Lesson.new
-      @lesson.poses.build()
-      @lesson.poses.build()
-      @lesson.poses.build()
+      10.times { @lesson.poses.build() }
     else
       redirect_to root_path
     end
