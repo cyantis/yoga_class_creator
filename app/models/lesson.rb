@@ -4,7 +4,6 @@ class Lesson < ApplicationRecord
   belongs_to :teacher
 
   validates :lesson_type, :title, presence: true
-  validates :title, uniqueness: true
 
   def poses_attributes=(pose_attributes)
     self.poses = pose_attributes.values.collect {|pose_attribute| Pose.find_or_create_by(name: pose_attribute["name"].downcase)}
