@@ -5,6 +5,8 @@ class Lesson < ApplicationRecord
 
   validates :lesson_type, :title, presence: true
 
+  scope :lesson_type_order, -> { order(:lesson_type) }
+
   def poses_attributes=(pose_attributes)
     self.poses = pose_attributes.values.collect {|pose_attribute| Pose.find_or_create_by(name: pose_attribute["name"].downcase)}
   end
