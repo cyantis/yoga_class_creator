@@ -9,7 +9,9 @@ class Lesson < ApplicationRecord
   scope :most_lessons, -> { select(:teacher_id).group(:teacher_id).count }
 
   def poses_attributes=(pose_attributes)
-    self.poses = pose_attributes.values.collect {|pose_attribute| Pose.find_or_create_by(name: pose_attribute["name"].downcase)}
+    clean_arr = pose_attributes.values.collect {|pose_attribute| pose_attribute if pose_attribute["name"] != ""}.compact
+
+    self.poses = clean_arr.collect {|pose| Pose.find_or_create_by(name: pose["name"].downcase)}
   end
 
   def self.top_teacher_arr

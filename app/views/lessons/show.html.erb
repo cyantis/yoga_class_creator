@@ -5,11 +5,7 @@
 <h3>Poses</h3>
 <ol>
   <% @lesson.poses.each do |p| %>
-    <% if p.name.empty? %>
-      <% next %>
-    <% else %>
-      <li><%= p.name.capitalize %></li>
-    <% end %>
+    <li><%= p.name.capitalize %></li>
   <% end %>
 </ol>
 <p><%= button_to "Edit Class", edit_teacher_lesson_path(@lesson.teacher, @lesson), method: :get %></p>
