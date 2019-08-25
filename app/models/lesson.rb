@@ -6,9 +6,14 @@ class Lesson < ApplicationRecord
   validates :lesson_type, :title, presence: true
 
   scope :lesson_type_order, -> { order(:lesson_type) }
+  scope :most_lessons, -> { select(:teacher_id).group(:teacher_id).count }
 
   def poses_attributes=(pose_attributes)
     self.poses = pose_attributes.values.collect {|pose_attribute| Pose.find_or_create_by(name: pose_attribute["name"].downcase)}
+  end
+
+  def self.top_teacher_arr
+    teacher = self.most_lessons.max_by{ |k,v| v}
   end
 
 end
